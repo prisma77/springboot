@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multi.mapper.BoardMapper">
+    <select id="getAllBoards" resultType="com.multi.model.Board">
+        SELECT * FROM board ORDER BY id DESC;
+    </select>
+
+    <select id="getBoardById" parameterType="int" resultType="com.multi.model.Board">
+        SELECT * FROM board WHERE id = #{id};
+    </select>
+
+    <insert id="insertBoard" parameterType="com.multi.model.Board">
+        INSERT INTO board (title, writer, content) VALUES (#{title}, #{writer}, #{content});
+    </insert>
+
+    <update id="updateBoard" parameterType="com.multi.model.Board">
+        UPDATE board SET title = #{title}, content = #{content} WHERE id = #{id};
+    </update>
+
+    <delete id="deleteBoard" parameterType="int">
+        DELETE FROM board WHERE id = #{id};
+    </delete>
+
+    <update id="incrementViews" parameterType="int">
+        UPDATE board SET views = views + 1 WHERE id = #{id};
+    </update>
+</mapper>

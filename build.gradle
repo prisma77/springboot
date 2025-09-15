@@ -24,14 +24,14 @@ dependencies {
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
 
     // JSP & JSTL (javax 세계) — 외부 톰캣이면 보통 jasper 불필요
-    // implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // ← 임베디드 톰캣 JAR 실행시에만 사용
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // ← 임베디드 톰캣 JAR 실행시에만 사용
     implementation 'javax.servlet:jstl:1.2'
 
     // Servlet API는 컴파일 전용 (외부 톰캣이 제공)
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 
     // DB Driver (하나만 사용하세요)
-    runtimeOnly 'mysql:mysql-connector-java' // 또는 runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 
     // Devtools (개발 전용, 패키징 시 자동 제외)
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
