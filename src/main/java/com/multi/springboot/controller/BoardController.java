@@ -16,7 +16,6 @@ public class BoardController {
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
     }
-
     // 목록 + 검색 + 페이징
     @GetMapping("/list")
     public String list(@RequestParam(defaultValue = "1")  int page,
